@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHW-Tr-Fln">
+                                <rect key="frame" x="262" y="361" width="77" height="30"/>
+                                <state key="normal" title="Take photo"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xBA-AF-Ilw"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IGA-2J-Msz">
+                                <rect key="frame" x="150" y="51" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7s4-r3-csl"/>
+                                    <constraint firstAttribute="width" secondItem="IGA-2J-Msz" secondAttribute="height" multiplier="1:1" id="IH0-oX-rUg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVm-Yg-GZc">
+                                <rect key="frame" x="275" y="421" width="50" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r3b-ud-zav"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IGA-2J-Msz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Ml-v4-Zph"/>
+                            <constraint firstItem="jHW-Tr-Fln" firstAttribute="top" secondItem="IGA-2J-Msz" secondAttribute="bottom" constant="10" id="7wC-59-nNO"/>
+                            <constraint firstItem="jHW-Tr-Fln" firstAttribute="top" secondItem="IGA-2J-Msz" secondAttribute="bottom" constant="10" id="HmS-zK-MkQ"/>
+                            <constraint firstItem="BVm-Yg-GZc" firstAttribute="top" secondItem="jHW-Tr-Fln" secondAttribute="bottom" constant="30" id="O2J-ht-SFn"/>
+                            <constraint firstItem="BVm-Yg-GZc" firstAttribute="centerX" secondItem="jHW-Tr-Fln" secondAttribute="centerX" id="RYJ-bD-wQo"/>
+                            <constraint firstItem="jHW-Tr-Fln" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YPB-Si-JS5"/>
+                            <constraint firstItem="IGA-2J-Msz" firstAttribute="centerX" secondItem="jHW-Tr-Fln" secondAttribute="centerX" id="dj0-40-zco"/>
+                            <constraint firstItem="jHW-Tr-Fln" firstAttribute="top" secondItem="IGA-2J-Msz" secondAttribute="bottom" constant="10" id="hJt-7H-pVF"/>
+                            <constraint firstItem="IGA-2J-Msz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="oSv-eC-fqe"/>
+                            <constraint firstItem="jHW-Tr-Fln" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oqc-vp-ZGb"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dj0-40-zco"/>
+                                <exclude reference="7wC-59-nNO"/>
+                                <exclude reference="YPB-Si-JS5"/>
+                                <exclude reference="hJt-7H-pVF"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="IGA-2J-Msz" id="Y0y-4Z-1ka"/>
+                        <outlet property="photoButton" destination="jHW-Tr-Fln" id="JuO-sD-pKZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="499" y="507"/>
         </scene>
     </scenes>
 </document>
